@@ -1,0 +1,35 @@
+experiment:
+  groups:
+    - healthy_controls
+    - ptsd
+  n_subjects: 60
+  random_seed: 42
+  base_output_dir: "generatedSyntheticData"
+
+neural_model:
+  K: 100
+  edge_prob: 0.05
+  max_lag: 3
+  w_scale: 0.6
+  nonlinearity: "tanh"
+  sigma_eps: 0.2
+
+intervention:
+  # choose one or combine: set nonzero fractions as needed
+  removal_fraction: 0.15     # remove 15% of existing edges
+  addition_fraction: 0.15    # add new edges equal to 15% of original edge count
+
+  scale_factor: 1.0          # optional (kept for compatibility; 1.0 = no scaling)
+  new_edge_w_scale: 0.6      # std for weights of newly added edges
+  new_edge_max_lag: 3        # lag range for newly added edges (1..new_edge_max_lag)
+
+  seed_offset: 5000          # reproducibility of which edges are touched
+
+acquisition:
+  minutes: 6.0
+  TR: 0.735
+
+mixing:
+  layers: 3
+  eps_sigma: 0.5
+

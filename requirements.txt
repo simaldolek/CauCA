@@ -9,3 +9,4 @@ torch==2.0.0
 wandb==0.13.7
 jupyter
 jupytext
+scipy
